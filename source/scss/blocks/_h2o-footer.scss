@@ -1,0 +1,150 @@
+footer{
+  padding-bottom: 10px;
+}
+
+.h2o-footer{
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #21242e;
+  border-top: none;
+  position: relative;
+  background: #0e161f;
+  border-radius: 0 0 12px 12px;
+  padding: 20px clamp(16px, 3.5398vw, 40px) 0;
+
+
+  &__box{
+    display: flex;
+    flex-direction: column;
+    grid-gap: 30px;
+    padding-bottom: 50px;
+  }
+
+  &__nav{
+    display: flex;
+    grid-gap: clamp(20px, 2.6549vw, 30px);
+    
+    @include for-tablet{
+      justify-content: center;
+    }
+
+    @include tablet{
+      justify-content: space-between;
+    }
+  }
+
+  &__list{
+    display: grid;
+    grid-gap: 4px clamp(20px, 2.6549vw, 30px);
+    height: fit-content;
+
+    @include for-tablet{
+      grid-template-columns: repeat(2, auto);
+    }
+    @include tablet{
+      width: 100%;
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @include mobile{
+      grid-template-columns: 1fr;
+   
+    }
+
+    @include mobile{
+      justify-items: center;
+    }
+  }
+
+  &__item{
+    display: flex;
+  }
+
+  &__link{
+    color: rgba(var(--cl-a),1.0);
+    font-weight: 400;
+    font-size: clamp(12px, 1.2389vw, 14px);
+    line-height: 20px;
+    font-family: var(--font-family);
+  }
+
+
+  &__bottom{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 0;
+    min-height: 96px;
+    border-radius: 0 0 12px 12px;
+    position: relative;
+
+    &::before{
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 50%;
+      width: calc(100% + (clamp(16px, 3.5398vw, 40px) * 2));
+      height: 1px;
+      transform: translate(-50%, -50%);
+      background: rgba(var(--bg-d),.1);
+    }
+
+    @include mobile{
+      @include for-ios{
+        display: grid;
+        grid-template-columns: 1fr auto;
+      }
+    }
+
+    @include for-ios{
+      grid-gap: 20px;
+    }
+    @include ios{
+      flex-direction: column;
+      grid-gap: 10px;
+    }
+  }
+
+  &__copy{
+    @include mobile{
+
+      text-align: center;
+      br{
+        display: none;
+      }
+
+      @include for-ios{
+        grid-column: 1/-1;
+        grid-row: 2;
+      }
+
+      @include ios{
+        order: 3;
+      }
+    }
+  }
+
+  &__contact, &__copy{
+    font-size: 12px;
+    line-height: 20px;
+    color: rgba(var(--cl-a),1.0);
+    font-family: var(--font-family);
+    grid-gap: 12px;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    text-decoration-color: transparent;
+    transition: all .4s;
+
+    &:hover{
+      text-decoration-color: inherit;
+    }
+  }
+
+
+
+  &__icons{
+    display: flex;
+    align-items: center;
+    grid-gap: 18px;
+  }
+}

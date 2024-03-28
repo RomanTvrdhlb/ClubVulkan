@@ -1,0 +1,92 @@
+.h2o-header{
+  width: 100%;
+  padding: 0 0 10px;
+  position: fixed;
+  top: 0;
+  z-index: 80;
+
+ 
+  &.sticky {
+    // box-shadow: 0 11px 25px rgba(66, 140, 220, 0.631372549);
+  }
+
+  &__box{
+    height: 62px;
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+    justify-items: center;
+    grid-gap: 20px;
+    position: relative;
+    padding:0 18px;
+
+    &::before, &::after{
+      content: "";
+      height: 96px;
+      width: calc(50% + 40px);
+      position: absolute;
+      top: 0;
+      background: url(../img/index/bg-header.png) 100% -2px no-repeat;
+      background-size: cover;
+      z-index: -2;
+      pointer-events: none;
+  }
+
+  &::before{
+    right: -40px;
+  }
+
+  &::after{
+      left: -40px;
+      transform: rotateY(180deg);
+  }
+  }
+
+  &__btns{
+    display: flex;
+    align-items: center;
+    grid-gap: clamp(10px, 1.1504vw, 13px);
+
+    .h2o-main-button{
+      min-width: 256px;
+      font-size: clamp(14px, 1.4159vw, 16px);
+      width: fit-content;
+      &--blue{
+        min-width: 96px;
+      }
+    }
+  }
+
+  .h2o-burger{
+    width: fit-content;
+    padding: 0;
+    @include for-tablet{
+      display: none;
+    }
+  }
+
+  
+
+  @include tablet{
+  
+
+    .h2o-logo{
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%,-50%);
+    }
+
+    
+  }
+
+  @include mobile{
+    .h2o-logo{
+      top: 0;
+      transform: translate(-50%, 10%);
+    }
+  }
+}
+
+
+

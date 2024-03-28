@@ -1,0 +1,22 @@
+.h2o-main-nav{
+    display: flex;
+    align-items: center;
+    grid-gap: clamp(8px, 1.4159vw, 16px);
+
+    &__link{
+        display: inline-flex;
+        align-items: center;
+        font-weight: 500;
+        font-size: 14px;
+        line-height: 100%;
+        color: rgba(var(--cl-a),1.0);
+        text-transform: uppercase;
+        font-family: var(--font-family);
+        transition: all .4s;
+
+        &:hover{
+            text-shadow: 0 0 16px rgba(255,212,0,.6), 0 0 6px rgba(255,212,0,.6), 0 0 4px rgba(255,128,0,.6);
+            color: rgba(var(--cl-c),1.0);
+        }
+    }
+}

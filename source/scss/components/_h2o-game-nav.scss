@@ -1,0 +1,73 @@
+.h2o-game-nav{
+    display: flex;
+    align-items: center;
+    grid-gap: clamp(15px, 4.2478vw, 48px);
+    height: 80px;
+    width: calc(100% + 16px);
+    margin-left: -16px;
+    padding-left: 64px;
+    flex-flow: row nowrap;
+    background: url(../img/index/bg-nav.png) no-repeat 50% 0;
+    background-size: cover;
+    border-radius: 2px;
+    box-shadow: 0 10px 20px rgba(0,0,0,.9);
+    position: relative;
+    z-index: 6;
+   
+    &__link{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: clamp(16px, 1.6814vw, 19px);
+        line-height: 85%;
+        font-family: var(--font-family);
+        color: rgba(var(--cl-a),1.0);
+        white-space: nowrap;
+        transition: all .2s;
+        position: relative;
+        height: 100%;
+
+        &::before{
+            content: "";
+            width: 0;
+            height: 0;
+            position: absolute;
+            top: auto;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            border-left: 8px solid transparent;
+            border-right: 8px solid transparent;
+            border-bottom: 8px solid var(--br-c);
+            margin: 0 auto;
+            opacity: 0;
+            transition: all .2s;
+        }
+
+        &.active{
+            color: rgba(var(--cl-e),1.0);
+
+            &::before{
+                opacity: 1;
+            }
+        }
+
+        &:hover{
+            text-shadow: 0 0 16px rgba(255,212,0,.6), 0 0 8px rgba(255,212,0,.6), 0 0 4px rgba(255,128,0,.6);
+            color: rgba(var(--cl-e),1.0);
+        }
+    }
+
+    &__item{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100%;
+
+        &:last-child{
+            justify-content: flex-end;
+            padding: 0 clamp(16px, 2.1239vw, 24px);
+            width: 100%;
+        }
+    }
+}

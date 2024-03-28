@@ -1,0 +1,77 @@
+.h2o-banner-slider{
+    width: 100%;
+
+    @include tablet{
+        width: calc(100% + (var(--container-offset) * 2));
+        margin-left: calc(var(--container-offset) * -1);
+    }
+
+    &__wrapp{
+        @include tablet{
+            padding: 0 var(--container-offset) !important;
+        }
+    }
+
+    .splide{ 
+        
+        &__pagination{
+            bottom: -15px;
+            &__page{
+                background: rgba(var(--bg-a),1.0);
+                opacity: 0.5;
+                width: 6px;
+                height: 6px;
+                &.is-active{
+                    opacity: 1;
+                    transform: scale(1.2);
+                }
+            }
+        }
+        
+        &__arrow{
+            transition: all 0.3s linear;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: clamp(35px, 3.1373vw, 40px);
+            height: clamp(35px, 3.1373vw, 40px);
+            color: rgba(var(--cl-a),1.0);
+            background-color: rgba(var(--bg-a),.1);
+            border-radius: 2px;
+            transform: skew(-10deg, 0) translateY(-50%);
+            opacity: 1;
+           
+    
+            svg{
+                transform: skew(10deg);
+                fill: rgba(var(--cl-a),1.0);
+            }
+            &:disabled{
+                opacity: .5;
+            }
+            &:hover{
+                background: rgba(var(--bg-a),.2);
+            }
+    
+            &--prev{
+                left: 10px;
+    
+                svg{
+                    transform: skew(10deg) rotate(180deg);
+                }
+
+                @include tablet{
+                    left: 20px;
+                }
+            }
+    
+            &--next{
+            right: 10px;
+
+            @include tablet{
+                right: 20px;
+            }
+        }
+    }
+    }
+}
