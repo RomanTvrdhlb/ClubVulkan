@@ -14,21 +14,30 @@
         font-weight: 700;
       }
     }
-
-    &__image{
+    
+    img{
       display: flex;
-      align-items: center;
-      justify-content: center;
+      align-self: center;
+    }
 
-      &--mode{
-        padding: clamp(5px, 1.2549vw, 16px) 0 clamp(16px, 2.5098vw, 32px);
+    button{
+      color: rgba(var(--cl-f),1.0);
+      text-decoration: underline;
+      font-family: var(--font-family);
+      font-size: 14px;
+      line-height: 110%;
+      font-weight: 400;
+      transition: all .3s;
+      text-underline-offset: 3px;
+      &:hover{
+        color: rgba(var(--cl-e),1.0);
       }
     }
 
     &--mode{
       grid-gap: 0;
 
-      .h2o-main-subtitle{
+      .h5,h6{
         padding-top: 8px;
         padding-bottom: 8px;
       }

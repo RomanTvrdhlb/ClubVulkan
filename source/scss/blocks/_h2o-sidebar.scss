@@ -3,6 +3,78 @@
     flex-direction: column;
     grid-gap: 6px;
     
+    &__box{
+        @include for-tablet{
+            display: flex;
+            flex-direction: column;
+            grid-gap: 6px;
+        }
+
+        @include tablet{
+            display: grid;
+            grid-gap: 6px;
+
+            @include for-mobile{
+                grid-template-columns: repeat(2, 1fr);
+                grid-template-rows: repeat(2, clamp(70px, 7.0796vw, 80px)) 1fr;
+            }
+
+            
+            .h2o-sidebar-game{
+                @include for-mobile{
+                    grid-column: 1;
+                    grid-row: 1/4;
+                }
+                .h2o-main-button{
+                    max-width: 100%;
+                }
+            }
+
+            .h2o-bonus-card{
+               &__bottom{
+                flex-grow: 1;
+                justify-content: flex-end;
+               }
+            }
+        }
+
+        @include mobile{
+            grid-template-columns: 1fr;
+        }
+    }
+
+    &__wrapp{
+        @include for-tablet{
+            display: flex;
+            flex-direction: column;
+            grid-gap: 6px;
+        }
+
+        @include tablet{
+            display: grid;
+            grid-gap: 6px;
+
+            @include for-small-tablet{
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            
+            .h2o-tournament{
+                @include for-small-tablet{
+                    grid-column: 1;
+                    .h2o-main-button{
+                        max-width: 100%;
+                    }
+                }
+               
+            }
+        }
+
+        @include small-tablet{
+            grid-template-columns: 1fr;
+        }
+    }
+
     &__top{
         border-radius: 6px;
         padding: 14px 30px;
@@ -13,15 +85,21 @@
         background-size: 16px;
         overflow: hidden;
         margin-bottom: 1px;
+
+        @include tablet{
+            .h2o-main-button{
+                max-width: 100%;
+                height: 100%;
+            }
+        }
     }
 
     &__bonus{
         position: relative;
-        min-height: 200px;
+       
         z-index: 1; 
         display: flex;
         flex-direction: column;
-    
         border-radius: 6px;
         padding: 24px 30px 30px;
         background: url(../img/index/bg2.png) 50% 0 repeat #000;
@@ -30,6 +108,16 @@
         box-shadow: inset 0 0 0 1px hsla(0,0%,100%,.05), 0 0 0 1px #171e27;
         background-size: 16px;
         overflow: hidden;
+
+        @include for-tablet{
+            min-height: 200px;
+        }
+
+        @include tablet{
+            .h2o-title{
+                flex-grow: 1;
+            }
+        }
 
         &:hover{
             .h2o-sidebar__bonus-image img{
@@ -88,6 +176,10 @@
         transition: all .2s;
         z-index: 3;
         position: relative;
+
+        @include tablet{
+            height: clamp(70px, 7.0796vw, 80px);
+        }
 
         &::before{
             position: absolute;

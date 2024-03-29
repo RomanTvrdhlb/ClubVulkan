@@ -3,7 +3,17 @@
     width: 12px;
     height: 12px;
     display: block;
-    background-image: url(../img/sprite/fire.svg);
+    background-image: url(../img/sprite/mail.svg);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: contain;
+  }
+
+  &-scroll {
+    width: 105px;
+    height: 50px;
+    display: block;
+    background-image: url(../img/logo-scroll.png);
     background-position: center center;
     background-repeat: no-repeat;
     background-size: contain;
@@ -63,7 +73,7 @@
     width: 20px;
     height: 20px;
     display: block;
-    background-image: url(../img/sprite/fire.svg);
+    background-image: url(../img/sprite/age.svg);
     background-position: center center;
     background-repeat: no-repeat;
     background-size: contain;
@@ -154,13 +164,17 @@
   }
 
   &-fav {
-    width: 28px;
-    height: 27px;
+    width: clamp(20px, 2.4779vw, 28px);
+    height: clamp(19px, 2.3894vw, 27px);
     display: block;
     background-image: url(../img/sprite/star.svg);
     background-position: center center;
     background-repeat: no-repeat;
     background-size: contain;
+
+    @include mobile{
+      margin-top: -4px;
+    }
   }
 
 }

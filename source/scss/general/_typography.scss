@@ -25,6 +25,7 @@
   position: relative;
   display: flex;
   flex-shrink: 0;
+  transition: all .3s;
 
   &::before {
     top: 2px;
@@ -38,8 +39,19 @@
     display: block;
     background-repeat: no-repeat;
     background-size: contain;
-    transition-delay: 1s;
+    // transition-delay: 1s;
+    transition: all .3s;
     background-image: url(../img/logo-color6.png);
+  }
+
+  &__scroll{
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-150%);
+    transition: all .3s;
+    opacity: 0;
+    visibility: hidden;
   }
 }
 
@@ -103,6 +115,11 @@
   flex-grow: 1;
   margin-left: 38px;
 
+
+  @include small-tablet{
+    margin: 15px 0 0;
+}
+
   &__title {
     font-family: var(--font-family);
     font-weight: 400;
@@ -113,8 +130,9 @@
   }
 
   &__value {
+    text-align: start;
     display: inline-block;
-    font-size: clamp(22px, 3.5398vw, 40px);
+    font-size: clamp(22px, 2.963vw, 40px);
     line-height: 100%;
     font-weight: 500;
     font-style: normal;
@@ -127,28 +145,63 @@
     );
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+
+    @include small-tablet{
+      font-size: 26px;
+    }
   }
 }
 
 .h2o-winners {
   position: relative;
-  border-radius: 0 2px 0 0;
-  border-left: 2px solid #090909;
+  
+  @include small-tablet{
+    @include for-ios{
+      max-width: 240px;
+    }
+  }
+
+  @include for-ios{
+    border-left: 2px solid var(--br-b);
+    border-radius: 0 2px 0 0;
+  }
+
+  &__btn{
+    position: absolute;
+    inset: 0;
+    z-index: 5;
+  }
 
   &__box {
-    height: 86px;
+    
     display: grid;
-    grid-template-columns: auto 124px;
     grid-gap: 4px 0;
-    background-color: #000;
-
+    background-color: rgba(var(--cl-b),1.0);
     padding-right: 22px;
+
+    @include for-tablet{
+      grid-template-columns: auto clamp(80px, 9.538vw, 124px);
+    }
+
+    @include tablet{
+      @include for-ios{
+        grid-template-columns: auto clamp(60px, 12.109vw, 124px);
+      }
+    }
+
+    @include for-ios{
+      height: 86px;
+    }
+
+    @include ios{
+      height: 90px;
+      grid-template-columns: 1fr 1fr;
+    }
   }
 
   &__image {
     grid-column: 1;
     grid-row: 1/3;
-    width: 130px;
     position: relative;
 
     &::before {
@@ -160,6 +213,16 @@
       height: 100%;
       width: 100%;
       background: var(--gr-d);
+    }
+
+    @include for-small-tablet{
+      width: clamp(80px, 10vw, 130px);
+    }
+
+    @include small-tablet{
+      @include for-ios{
+        width: clamp(80px, 18.229vw, 140px);
+      }
     }
 
     img,
@@ -213,12 +276,36 @@
   &--top {
     border: none;
     border-radius: none;
+
+    @include ios{
+      display: flex;
+      justify-content: center;
+    }
+
     .h2o-winners {
+      
       &__box {
         background-color: initial;
-        grid-template-columns: 124px;
-        margin-left: 108px;
         padding: 0;
+
+        @include for-tablet{
+          grid-template-columns: clamp(80px, 9.538vw, 124px);
+        }
+
+        @include for-ios{
+          margin-left: 108px;
+        }
+
+        @include tablet{
+          @include for-ios{
+            grid-template-columns: clamp(90px, 12.109vw, 124px);
+          }
+        }
+        @include ios{
+          grid-template-columns: 100%;
+          justify-items: center;
+      
+        }
       }
       &__image {
         grid-column: initial;
@@ -226,15 +313,35 @@
         position: absolute;
         width: 96px;
         height: 96px;
-        left: 16px;
         bottom: 0;
         transform: translateY(30%);
         &::before {
           display: none;
         }
+
+        @include for-mobile{
+          left: 16px;
+        }
+
+        @include mobile{
+          left: 0;
+        }
+
+        @include ios{
+          bottom: 10px;
+          left: 50%;
+          transform: translate(-150%, 30%);
+        }
       }
       &__title {
         left: 48px;
+
+        @include ios{
+          left: 50%;
+          transform: translateX(-50%);
+          text-align: center;
+          top: 5px;
+        }
       }
       &__value {
         text-align: start;
@@ -247,7 +354,7 @@
 }
 
 .h2o-title {
-  font-size: clamp(16px, 2.1239vw, 24px);
+  font-size: clamp(18px, 2.1239vw, 24px);
   line-height: 130%;
   font-weight: 700;
   font-family: var(--font-family2);
@@ -292,10 +399,10 @@
   font-size: 12px;
 }
 
-.h2o-main-title {
+h1,h2,h3,h4{
   font-family: var(--font-family);
   font-weight: 500;
-  font-size: clamp(16px, 2.1239vw, 24px);
+  font-size: clamp(18px, 2.1239vw, 24px);
   line-height: 130%;
   color: rgba(var(--cl-g), 1);
   background-image: var(--gr-h);
@@ -303,27 +410,24 @@
   -webkit-text-fill-color: transparent;
 }
 
-.h2o-main-link{
-  color: rgba(var(--cl-f),1.0);
-  text-decoration: underline;
+h5,h6{
   font-family: var(--font-family);
-  font-size: 14px;
-  line-height: 110%;
-  font-weight: 400;
-  transition: all .3s;
-  text-underline-offset: 3px;
-  &:hover{
-    color: rgba(var(--cl-e),1.0);
-  }
+  font-weight: 500;
+  font-size: clamp(16px, 1.5929vw, 18px);
+  line-height: 130%;
+  color: rgba(var(--cl-g), 1);
+  background-image: var(--gr-h);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
-.h2o-main-list{
+ol{
   display: flex;
   flex-direction: column;
   grid-gap: 10px;
   counter-reset: li;
 
-  &__item{
+  li{
     display: flex;
     flex-direction: column;
     position: relative;
@@ -377,6 +481,27 @@ table:not([class]) {
     0 -2px 0 0 rgba(37, 41, 46, 0.75);
   border: 2px solid var(--br-b);
   border-spacing: 0;
+
+
+  @include small-tablet{
+    overflow-x: scroll;
+    display: table-column-group;
+
+    & > *{
+      white-space: nowrap;
+    }
+    
+
+
+    td{
+      min-width: 165px;
+      white-space: normal !important;
+    }
+  }
+    
+    
+   
+ 
 
   tbody {
     tr:nth-child(even) td {

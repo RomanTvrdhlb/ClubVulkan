@@ -99,6 +99,7 @@
   }
 
   &__image {
+    overflow: hidden;
     position: absolute;
     left: 50%;
     top: -24px;

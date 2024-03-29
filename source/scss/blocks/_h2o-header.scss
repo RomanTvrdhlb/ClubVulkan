@@ -7,16 +7,27 @@
 
  
   &.sticky {
-    // box-shadow: 0 11px 25px rgba(66, 140, 220, 0.631372549);
+    
+    .h2o-logo{
+      &::before{
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(-150%);
+      }
+
+      &__scroll{
+        transform: translateY(-50%);
+        opacity: 1;
+        visibility: visible;
+      }
+    }
   }
 
   &__box{
     height: 62px;
     display: grid;
-    grid-template-columns: auto 1fr auto;
     align-items: center;
-    justify-items: center;
-    grid-gap: 20px;
+    grid-gap: clamp(10px, 1.7699vw, 20px);
     position: relative;
     padding:0 18px;
 
@@ -33,12 +44,27 @@
   }
 
   &::before{
-    right: -40px;
+    right: calc(clamp(39px, 3.077vw, 40px) * -1);
   }
 
   &::after{
-      left: -40px;
+      left: calc(clamp(39px, 3.077vw, 40px) * -1);
       transform: rotateY(180deg);
+  }
+
+  @include for-tablet{
+    grid-template-columns: auto 1fr auto;
+    justify-items: center;
+  }
+
+  @include tablet{
+    grid-template-columns: repeat(2, auto) 1fr;
+    justify-items: end;
+
+      .h2o-main-nav{
+        display: none;
+      }
+
   }
   }
 
@@ -48,44 +74,40 @@
     grid-gap: clamp(10px, 1.1504vw, 13px);
 
     .h2o-main-button{
-      min-width: 256px;
-      font-size: clamp(14px, 1.4159vw, 16px);
+      min-width: clamp(200px, 18.963vw, 256px);
+      font-size: clamp(14px, 1.185vw, 16px);
       width: fit-content;
+      padding: 0 10px;
       &--blue{
-        min-width: 96px;
+       
+
+        @include for-small-tablet{
+          min-width: clamp(80px, 7.385vw, 96px);
+        }
+        @include small-tablet{
+          min-width: clamp(60px, 8.4956vw, 96px);
+        }
       }
-    }
-  }
 
-  .h2o-burger{
-    width: fit-content;
-    padding: 0;
-    @include for-tablet{
-      display: none;
-    }
-  }
-
-  
-
-  @include tablet{
-  
-
-    .h2o-logo{
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%,-50%);
+      @include mobile{
+        &:not(.h2o-main-button--blue){
+          display: none
+        }
+      }
     }
 
     
   }
 
-  @include mobile{
-    .h2o-logo{
-      top: 0;
-      transform: translate(-50%, 10%);
+  .h2o-burger{
+    @include burger;
+
+    @include for-tablet{
+      display: none;
     }
   }
+
+ 
 }
 
 

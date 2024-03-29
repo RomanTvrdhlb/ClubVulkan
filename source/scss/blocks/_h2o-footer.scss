@@ -5,10 +5,10 @@ footer{
 .h2o-footer{
   display: flex;
   flex-direction: column;
-  border: 1px solid #21242e;
+  border: 1px solid var(--br-g);
   border-top: none;
   position: relative;
-  background: #0e161f;
+  background: rgba(var(--bg-i),1.0);
   border-radius: 0 0 12px 12px;
   padding: 20px clamp(16px, 3.5398vw, 40px) 0;
 
@@ -21,15 +21,35 @@ footer{
   }
 
   &__nav{
-    display: flex;
-    grid-gap: clamp(20px, 2.6549vw, 30px);
+   
+    
     
     @include for-tablet{
       justify-content: center;
     }
 
     @include tablet{
+      @include for-small-tablet{
       justify-content: space-between;
+    }
+  }
+
+    @include for-small-tablet{
+      display: flex;
+      grid-gap: clamp(20px, 2.6549vw, 30px);
+    }
+
+    @include small-tablet{
+      display: grid;
+      grid-gap: 10px;
+
+      @include for-mobile{
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    @include mobile{
+      grid-template-columns: repeat(2, 1fr);
     }
   }
 
@@ -44,16 +64,14 @@ footer{
     @include tablet{
       width: 100%;
       grid-template-columns: repeat(2, 1fr);
+      
     }
 
-    @include mobile{
-      grid-template-columns: 1fr;
-   
+    @include small-tablet{
+      display: contents;
     }
 
-    @include mobile{
-      justify-items: center;
-    }
+  
   }
 
   &__item{
@@ -66,6 +84,7 @@ footer{
     font-size: clamp(12px, 1.2389vw, 14px);
     line-height: 20px;
     font-family: var(--font-family);
+    text-align: start;
   }
 
 
@@ -140,7 +159,10 @@ footer{
     }
   }
 
-
+  &__contact{
+    display: flex;
+    align-items: center;
+  }
 
   &__icons{
     display: flex;

@@ -3,24 +3,9 @@ const header = document.querySelector(".h2o-header");
 const overlay = document.querySelector("[data-overlay]");
 const mobileMenu = document.querySelector(".h2o-mobile-menu");
 const burgers = document.querySelectorAll(".h2o-burger");
-const mainSlider = document.querySelector(".h2o-main-slider");
 const accParrent = [...document.querySelectorAll("[data-accordion-init]")];
-const asideMenu = document.querySelector("[data-aside]");
-const asideMenuBtn = document.querySelector(".h2o-aside-menu__btn");
 const htmlEl = document.documentElement;
 const bodyEl = document.body;
-const providersSlider = document.querySelector('.h2o-providers-slider');
-const jackpotSlider = document.querySelector('.h2o-jackpot-slider');
-const loyaltySlider = document.querySelector('.h2o-loyalty-slider');
-const timers = document.querySelectorAll('.h2o-timer');
-const gamesSlider = document.querySelector('.h2o-games-slider');
-const tournSlider = document.querySelector('.h2o-tournament-slider');
-const bonusSliders = document.querySelectorAll('.h2o-bonus-slider');
-const bannerSlider = document.querySelector('.h2o-banner-slider');
-let list1 = document.getElementById("h2o-list1");
-let list2 = document.getElementById("h2o-list2");
-let list3 = document.getElementById("h2o-list3");
-
 //------------------------------------------------
 
 //----customFunction------------------------------
@@ -98,47 +83,6 @@ const elementHeight = (el, variableName) => {
 }
 //------------------------------------------------
 
-//----asideMenuHandler----------------------------
-function asideMenuHandler(){
-  asideMenu && asideMenuBtn.addEventListener("click", function (e) {
-    e.preventDefault();
-    if(asideMenuBtn.classList.contains('active')){
-      asideAccClose();
-    }
-    toggleClassInArray(accBtns, 'disabled')
-    toggleClassInArray(asideBtns, 'disabled')
-    toggleCustomClass(asideMenu);
-    toggleCustomClass(asideMenuBtn);
-  });
-}
-
-//----asideMenuClose-----------------------------
-function asideAccClose() {
-  const asideAcordions = asideMenu.querySelectorAll('[data-accordion-init]');
-  asideAcordions.forEach(function(acordion){
-    removeCustomClass(acordion.querySelector('.h2o-nav-acc__btn'), 'active');
-    removeCustomClass(acordion.querySelector('.h2o-nav-acc__content'), 'active');
-    acordion.querySelector('.h2o-nav-acc__content').style.maxHeight = "0";
-  })
-}
-
-function asideMenuHide() {
-  removeCustomClass(asideMenu);
-  removeCustomClass(asideMenuBtn);
-  addClassInArray(asideBtns, 'disabled');
-  addClassInArray(accBtns, 'disabled');
-};
-
-if(asideMenu){
-  asideMenuHandler();
-  document.addEventListener("click", function (event) {
-    if (!asideMenu.contains(event.target) && !asideMenuBtn.contains(event.target)) {
-      asideAccClose();
-      asideMenuHide();
-    }
-  });
-}
- 
 //----accordion----------------------------------
 window.addEventListener("DOMContentLoaded", () => {
   accParrent &&

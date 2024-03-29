@@ -1,7 +1,6 @@
 .h2o-first-section {
   position: relative;
   padding-bottom: clamp(40px, 4.7059vw, 60px);
-  overflow: hidden;
 
   &__box {
     position: relative;
@@ -16,6 +15,10 @@
     grid-gap: 5px;
 
     padding: 0 38px;
+
+    @include small-tablet{
+      padding: 0 15px;
+    }
   }
 
   &__wrapp{
@@ -24,9 +27,40 @@
   }
 
   &__top{
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
+    @include for-small-tablet{
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      max-height: 86px;
+    }
+
+    @include small-tablet{
+      display: grid;
+      grid-template-columns: 204px 1fr;
+      grid-gap: 15px 10px;
+
+      .h2o-jackpot{
+        justify-self: center;
+        align-items: center;
+
+        @include small-tablet{
+          grid-column: 1/-1;
+          grid-row: 1/-1;
+        }
+      }
+      .h2o-winners{
+        &:last-child{
+          justify-self: end;
+          border-radius: 4px 0 0 0;
+          overflow: hidden;
+        }
+      }
+
+    }
+
+    @include ios{
+      grid-template-columns: 1fr;
+    }
   }
 
   &__filters{

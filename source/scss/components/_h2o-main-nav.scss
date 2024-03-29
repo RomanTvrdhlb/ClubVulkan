@@ -7,7 +7,7 @@
         display: inline-flex;
         align-items: center;
         font-weight: 500;
-        font-size: 14px;
+        font-size: clamp(12px, 1.037vw, 14px);
         line-height: 100%;
         color: rgba(var(--cl-a),1.0);
         text-transform: uppercase;
