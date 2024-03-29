@@ -24,32 +24,49 @@
   }
 
   &__box{
-    height: 62px;
     display: grid;
     align-items: center;
-    grid-gap: clamp(10px, 1.7699vw, 20px);
     position: relative;
-    padding:0 18px;
 
     &::before, &::after{
       content: "";
-      height: 96px;
-      width: calc(50% + 40px);
       position: absolute;
       top: 0;
       background: url(../img/index/bg-header.png) 100% -2px no-repeat;
       background-size: cover;
       z-index: -2;
       pointer-events: none;
+
+      @include for-mobile{
+        height: 96px;
+        width: calc(50% + 40px);
+      }
+
+      @include mobile{
+        height: 140px;
+        width: calc(60% + 40px);
+      }
   }
 
   &::before{
-    right: calc(clamp(39px, 3.077vw, 40px) * -1);
+    @include for-mobile{
+      right: calc(clamp(39px, 3.077vw, 40px) * -1);
+    }
+    @include mobile{
+      right: -60px;
+    }
   }
 
   &::after{
-      left: calc(clamp(39px, 3.077vw, 40px) * -1);
       transform: rotateY(180deg);
+
+      @include for-mobile{
+        left: calc(clamp(39px, 3.077vw, 40px) * -1);
+      }
+
+      @include mobile{
+        left: -60px;
+      }
   }
 
   @include for-tablet{
@@ -66,11 +83,23 @@
       }
 
   }
+
+  @include for-mobile{
+    height: 62px;
+    padding:0 18px;
+    grid-gap: clamp(10px, 1.7699vw, 20px);
+  }
+
+  @include mobile{
+    padding: 15px 18px 10px;
+    grid-template-columns: 100%;
+    grid-gap: 15px;
+    height: fit-content;
+  }
+
   }
 
   &__btns{
-    display: flex;
-    align-items: center;
     grid-gap: clamp(10px, 1.1504vw, 13px);
 
     .h2o-main-button{
@@ -79,8 +108,6 @@
       width: fit-content;
       padding: 0 10px;
       &--blue{
-       
-
         @include for-small-tablet{
           min-width: clamp(80px, 7.385vw, 96px);
         }
@@ -90,13 +117,22 @@
       }
 
       @include mobile{
-        &:not(.h2o-main-button--blue){
-          display: none
-        }
+        width: 100%;
+        max-width: 100%;
       }
+      
     }
 
-    
+    @include for-mobile{
+      display: flex;
+      align-items: center;
+    }
+
+    @include mobile{
+      width: 100%;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+    }
   }
 
   .h2o-burger{
@@ -105,9 +141,31 @@
     @include for-tablet{
       display: none;
     }
+
+    @include mobile{
+      justify-self: start;
+    }
   }
 
- 
+  .h2o-logo{
+    @include mobile{
+      position: absolute;
+      top: 0px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 105px;
+      height: 50px;
+
+      &::before{
+        display: none;
+      }
+      &__scroll{
+        transform: translateY(-50%);
+        opacity: 1;
+        visibility: visible;
+      }
+    }
+  } 
 }
 
 
