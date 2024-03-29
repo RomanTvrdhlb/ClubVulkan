@@ -19,16 +19,6 @@
     background-size: contain;
   }
 
-  &-filter {
-    width: 16px;
-    height: 16px;
-    display: block;
-    background-image: url(../img/sprite/filter.svg);
-    background-position: center center;
-    background-repeat: no-repeat;
-    background-size: contain;
-  }
-
   &-search {
     width: 20px;
     height: 20px;
@@ -44,16 +34,6 @@
     height: 6px;
     display: block;
     background-image: url(../img/sprite/ellipse.svg);
-    background-position: center center;
-    background-repeat: no-repeat;
-    background-size: contain;
-  }
-
-  &-popular {
-    width: 16px;
-    height: 16px;
-    display: block;
-    background-image: url(../img/sprite/popular.svg);
     background-position: center center;
     background-repeat: no-repeat;
     background-size: contain;

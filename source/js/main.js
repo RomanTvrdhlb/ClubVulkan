@@ -250,4 +250,51 @@ function stickyHeaderFunction(breakpoint){
 
 stickyHeaderFunction(320);
 elementHeight(header, "header-height");
-//-----------------------------------------------
+//------replaceEl-------------------------------
+
+  const sidebar = document.querySelector('.h2o-sidebar'),
+        sideBarParent = document.querySelector('.h2o-main-inner'),
+        sideBarParentMob = document.querySelector('.h2o-first-section')
+ 
+ const replaceElementsFunction = (
+   element,
+   parentDesktop,
+   parentMobile,
+   breakpoint,
+   firstRule,
+   lastRule
+ ) => {
+   let containerWidth = document.documentElement.clientWidth;
+ 
+   if (element) {
+     if (containerWidth <= `${breakpoint}`) {
+       parentMobile.insertAdjacentElement(`${firstRule}`, element);
+     }
+     if (containerWidth > `${breakpoint}`) {
+       parentDesktop.insertAdjacentElement(`${lastRule}`, element);
+     }
+   }
+ };
+ 
+ window.addEventListener("resize", () => {
+     replaceElementsFunction(
+      sidebar,
+      sideBarParent,
+      sideBarParentMob,
+       1024,
+       "afterend",
+       "beforeend"
+     )
+ });
+ window.addEventListener("DOMContentLoaded", () => {
+     replaceElementsFunction(
+      sidebar,
+      sideBarParent,
+      sideBarParentMob,
+       1024,
+     "afterend",
+     "beforeend"
+     )
+ });
+//---------------------------------------------------
+ 

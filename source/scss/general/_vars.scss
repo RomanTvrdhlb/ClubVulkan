@@ -6,27 +6,16 @@
 // --------------- default global variable ---------------
   // --body-bg: #09172e;
   --body-bg: #0d1e61;
-
   --body-font-size: 16px;
   --content-width: 1130px;
- 
   --container-offset: 20px;
   --container-width: calc(var(--content-width) + (var(--container-offset) * 2));
-
 
   @include small-tablet{
     --container-offset: 15px;
   }
   // --------------- default JS variable ---------------
-    --header-height: 88px;
-
-    @include tablet{
-      --header-height: 80px;
-    }
-
-    @include mobile{
-      --header-height: 110px;
-    }
+    --header-height: 72px;
 
 // --------------- default scroll variable ---------------
   --scrollbar-thumb: #2d3a4a;
@@ -37,7 +26,6 @@
 // --------------- default font-family variable ---------------
   --font-family: "Roboto" , sans-serif; // var(--font-family);
   --font-family2: "DIN-Condensed" , sans-serif; // var(--font-family2);
-
 // --------------- default text color variable ---------------
   --cl-a: #{HexToRGB(#ffffff)}; // rgba(var(--cl-a),1.0);
   --cl-b: #{HexToRGB(#000000)}; // rgba(var(--cl-b),1.0);
@@ -47,7 +35,6 @@
   --cl-f: #{HexToRGB(#64a6ff)}; // rgba(var(--cl-f),1.0);
   --cl-g: #{HexToRGB(#fafafa)}; // rgba(var(--cl-g),1.0);
   --cl-h: #{HexToRGB(#748494)}; // rgba(var(--cl-h),1.0);
-
 // --------------- default background color variable ---------------
   --bg-a: #{HexToRGB(#ffffff)}; // rgba(var(--bg-a),1.0);
   --bg-b: #{HexToRGB(#000000)}; // rgba(var(--bg-b),1.0);
@@ -60,7 +47,6 @@
   --bg-i: #{HexToRGB(#0e161f)}; // rgba(var(--bg-i),1.0);
   --bg-j: #{HexToRGB(#1b283c)}; // rgba(var(--bg-j),1.0);
   --bg-k: #{HexToRGB(#31465d)}; // rgba(var(--bg-k),1.0);
-
 // --------------- default border color color variable ---------------
   --br-a: #226dbf; // var(--br-a);
   --br-b: #090909; // var(--br-b);
@@ -69,7 +55,6 @@
   --br-e: #fdbb2c; // var(--br-e);
   --br-f: #fff; // var(--br-f);
   --br-g: #171e27; // var(--br-g);
-
 // --------------- default gradient color variable ---------------
 --gr-a: linear-gradient(to bottom,#910011 0,#ff021f 73%,#880010 98%); // var(--gr-a);
 --gr-b: linear-gradient(180deg, #77c100, #048523); // var(--gr-b);
@@ -81,7 +66,7 @@
 --gr-h: -webkit-linear-gradient(top, #fff, #b8b8cc); // var(--gr-h);
 --gr-i: linear-gradient(270deg, transparent 0, transparent 572px, #09172e 652px, #09172e); // var(--gr-i);
 --gr-j: linear-gradient(90deg, transparent 0, transparent 572px, #09172e 652px, #09172e); // var(--gr-j);
-
+--gr-k: linear-gradient(180deg, #efe08c 10%, #ffd401 40%, #f5b128 60%, #ffab01); // var(--gr-k);
 // -------------
 }
 

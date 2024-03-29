@@ -9,11 +9,7 @@
     grid-gap: 24px;
   }
 
-  &__inner{
-   display: flex;
-    flex-direction: column;
-    grid-gap: 5px;
-
+  .h2o-game-list{
     padding: 0 38px;
 
     @include small-tablet{
@@ -61,12 +57,5 @@
     @include ios{
       grid-template-columns: 1fr;
     }
-  }
-
-  &__filters{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    grid-gap: 10px;
   }
 }

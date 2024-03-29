@@ -39,7 +39,6 @@
     display: block;
     background-repeat: no-repeat;
     background-size: contain;
-    // transition-delay: 1s;
     transition: all .3s;
     background-image: url(../img/logo-color6.png);
   }
@@ -52,58 +51,6 @@
     transition: all .3s;
     opacity: 0;
     visibility: hidden;
-  }
-}
-
-.h2o-filter {
-  display: flex;
-  align-items: center;
-  grid-gap: 4px;
-  padding-right: 26px;
-  position: relative;
-
-  &::after {
-    content: "";
-    position: absolute;
-    top: 50%;
-    right: 4px;
-    width: 0;
-    height: 0;
-    border-color: var(--br-d) transparent transparent;
-    border-style: solid;
-    border-width: 3.5px 3.75px 0;
-    transform: translate(-50%, -50%);
-  }
-
-  &__title {
-    font-family: var(--font-family);
-    color: rgba(var(--cl-d), 1);
-    font-size: 12px;
-    line-height: 20px;
-  }
-
-  &--popular {
-    padding-right: 24px;
-    &::after {
-      top: initial;
-      transform: translate(0%, 140%);
-      border-color: var(--br-e) transparent transparent;
-      bottom: 10px;
-      border-width: 4px 4px 0;
-    }
-
-    &::before {
-      transform: translate(0%, -140%);
-      top: 10px;
-      width: 0;
-      height: 0;
-      border-color: transparent transparent rgba(184, 184, 204, 0.4);
-      border-style: solid;
-      border-width: 0 4px 4px;
-      content: "";
-      position: absolute;
-      right: 4px;
-    }
   }
 }
 
@@ -136,13 +83,7 @@
     line-height: 100%;
     font-weight: 500;
     font-style: normal;
-    background: linear-gradient(
-      180deg,
-      #efe08c 10%,
-      #ffd401 40%,
-      #f5b128 60%,
-      #ffab01
-    );
+    background: var(--gr-k);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 
@@ -480,8 +421,8 @@ table:not([class]) {
   box-shadow: 0 0 0 1px rgba(37, 41, 46, 0.9), 0 2px 0 0 rgba(37, 41, 46, 0.75),
     0 -2px 0 0 rgba(37, 41, 46, 0.75);
   border: 2px solid var(--br-b);
+  position: relative;
   border-spacing: 0;
-
 
   @include small-tablet{
     overflow-x: scroll;
@@ -491,17 +432,11 @@ table:not([class]) {
       white-space: nowrap;
     }
     
-
-
     td{
       min-width: 165px;
       white-space: normal !important;
     }
   }
-    
-    
-   
- 
 
   tbody {
     tr:nth-child(even) td {
